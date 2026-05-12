@@ -1,0 +1,175 @@
+@startchen
+skinparam nodesep 10
+skinparam ranksep 1
+skinparam linetype ortho
+left to right direction
+
+' ==========================================
+' ENTIDADES Y ATRIBUTOS
+' ==========================================
+
+entity Usuario {
+
+}
+
+entity Rol {
+
+}
+
+entity Permiso {
+
+}
+
+entity Actividad {
+
+}
+
+entity Plan {
+
+}
+
+entity Profesor {
+
+}
+
+entity Sala {
+
+}
+
+entity Sucursal {
+
+}
+
+entity Clase {
+
+}
+
+entity Mensualidad {
+
+}
+
+entity PagoClaseIndividual {
+
+}
+
+entity Pago {
+
+}
+
+' ==========================================
+' RELACIONES (Rombos en Notación Chen)
+' ==========================================
+
+relationship "Posee_Rol" as Rol_Usuario {
+
+}
+relationship "Tiene_Permiso" as Rol_Permiso {
+
+}
+
+relationship "Ofrece_Plan" as Actividad_Plan {
+
+}
+relationship "Enseña_En" as Profesor_Actividad {
+
+}
+
+relationship "Pertenece_A" as Clase_Actividad {
+
+}
+relationship "Ocurre_En" as Clase_Sala {
+
+}
+relationship "Dictada_Por" as Clase_Profesor {
+
+}
+
+relationship "Compra" as Usuario_Mensualidad {
+
+}
+relationship "Aplica_Plan" as Mensualidad_Plan {
+
+}
+relationship "Vincula_Actividad" as Mensualidad_Actividad {
+
+}
+relationship "Reserva_Clase" as Mensualidad_Clase {
+
+}
+
+relationship "Adquiere" as Usuario_PagoInd {
+
+}
+relationship "Paga_Por" as PagoInd_Clase {
+
+}
+relationship "Tarifa_De" as PagoInd_Plan {
+
+}
+
+relationship "Realizado_Por" as Pago_Usuario {
+
+}
+relationship "Cobrado_Por" as Pago_Recepcionista {
+
+}
+
+' ==========================================
+' CONEXIONES Y CARDINALIDAD
+' ==========================================
+
+' Accesos
+Usuario -N- Rol_Usuario
+Rol_Usuario -1- Rol
+
+Rol -N- Rol_Permiso
+Rol_Permiso -M- Permiso
+
+' Catálogo
+Actividad -1- Actividad_Plan
+Actividad_Plan -N- Plan
+
+Profesor -N- Profesor_Actividad
+Profesor_Actividad -M- Actividad
+
+' Clases
+Clase -N- Clase_Actividad
+Clase_Actividad -1- Actividad
+
+Clase -N- Clase_Sala
+Clase_Sala -1- Sala
+
+Clase -N- Clase_Profesor
+Clase_Profesor -1- Profesor
+
+' Mensualidades
+Usuario -1- Usuario_Mensualidad
+Usuario_Mensualidad -N- Mensualidad
+
+Plan -1- Mensualidad_Plan
+Mensualidad_Plan -N- Mensualidad
+
+Actividad -1- Mensualidad_Actividad
+Mensualidad_Actividad -N- Mensualidad
+
+Clase -1- Mensualidad_Clase
+Mensualidad_Clase -N- Mensualidad
+
+' Pagos Clase Individual
+Usuario -1- Usuario_PagoInd
+Usuario_PagoInd -N- PagoClaseIndividual
+
+Clase -1- PagoInd_Clase
+PagoInd_Clase -N- PagoClaseIndividual
+
+Plan -1- PagoInd_Plan
+PagoInd_Plan -N- PagoClaseIndividual
+
+' Pagos
+Usuario -1- Pago_Usuario
+Pago_Usuario -N- Pago
+
+Usuario -1- Pago_Recepcionista
+Pago_Recepcionista -N- Pago
+
+@endchen

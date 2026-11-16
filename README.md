@@ -1,13 +1,15 @@
 # Ingeniería de Software 2
 
-Este repositorio contiene modelado y teóricos de la materia Ingeniería de Software 2.
+Diapositivas de teoría y modelado de Ingeniería de Software 2 (cursada 2026).
 
-## Contenido
-### Año 2026 (`2026/`)
+## [Teoría](2026/Teoría/)
 
-* **[Modelado](2026/Modelado/)**: modelo lógico en PlantUML.
-* **[Teoría](2026/Teoría/)**: diapositivas de las clases teóricas (comunicación y SRS, GCS y planificación organizativa, riesgos).
+| Clase | Tema |
+| --- | --- |
+| [Clase 1](2026/Teoría/2026%20Clase%201_Comunicacion_SRS.pdf) | Comunicación y especificación de requerimientos (SRS) |
+| [Clase 2](2026/Teoría/2026%20Clase%202_GCS_%20Planificacion%20Organizativa.pdf) | Gestión de la configuración del software y planificación organizativa |
+| [Clase 3](2026/Teoría/2026%20Clase%203_Riesgos.pdf) | Riesgos |
 
-### Raíz
+## [Modelado](2026/Modelado/)
 
-* **[Modelado.plantuml](Modelado.plantuml/)**: proyecto PlantUML de modelado.
+- [Logico.plantuml](2026/Modelado/Logico.plantuml): diagrama entidad-relación en PlantUML (notación Chen) con las entidades usuarios, roles y permisos, actividades, planes, profesores, salas, sucursales, clases, mensualidades y pagos.
